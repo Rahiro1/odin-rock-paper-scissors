@@ -1,9 +1,48 @@
-let humanChoice = GetHumanChoice()
-let compurterChoice = GetComputerChoice()
+let humanChoice = "";
+let compurterChoice = "";
+let playerScore =0;
+let compurterScore =0;
 
-console.log(humanChoice);
+PlayRound(GetHumanChoice(), GetComputerChoice())
 
-console.log(compurterChoice);
+
+function PlayRound(humanChoice, compurterChoice){
+
+    if(humanChoice.toLowerCase() === "rock"){
+        console.log("success");
+        if(compurterChoice === "Scissors"){
+            playerScore ++;
+        }
+        if(compurterChoice === "Paper"){
+            compurterScore ++;
+        }
+    }
+    if(humanChoice.toLowerCase() === "paper"){
+        if(compurterChoice === "Rock"){
+            playerScore ++;
+        }
+        if(compurterChoice === "Scissors"){
+            compurterScore ++;
+        }
+    }
+
+    if(humanChoice.toLowerCase() === "scissors"){
+        if(compurterChoice === "Paper"){
+            playerScore ++;
+        }
+        if(compurterChoice === "Rock"){
+            compurterScore ++;
+        }
+    }
+
+    console.log("Player chose: " + humanChoice);
+
+    console.log("Computer chose: " + compurterChoice);
+
+    console.log("Player: " + playerScore.toString() + " Computer: " + compurterScore)
+}
+
+
 
 function GetComputerChoice(){
     let rnd = Math.floor(Math.random()*3);
