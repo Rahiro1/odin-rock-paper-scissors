@@ -1,46 +1,62 @@
-let humanChoice = "";
-let compurterChoice = "";
-let playerScore =0;
-let compurterScore =0;
+PlayGame();
+function PlayGame(){
+    let playerScore =0;
+    let compurterScore =0;
 
-PlayRound(GetHumanChoice(), GetComputerChoice())
+    PlayRound(GetHumanChoice(), GetComputerChoice());
+    PlayRound(GetHumanChoice(), GetComputerChoice());
+    PlayRound(GetHumanChoice(), GetComputerChoice());
+    PlayRound(GetHumanChoice(), GetComputerChoice());
+    PlayRound(GetHumanChoice(), GetComputerChoice());
 
-
-function PlayRound(humanChoice, compurterChoice){
-
-    if(humanChoice.toLowerCase() === "rock"){
-        console.log("success");
-        if(compurterChoice === "Scissors"){
-            playerScore ++;
-        }
-        if(compurterChoice === "Paper"){
-            compurterScore ++;
-        }
-    }
-    if(humanChoice.toLowerCase() === "paper"){
-        if(compurterChoice === "Rock"){
-            playerScore ++;
-        }
-        if(compurterChoice === "Scissors"){
-            compurterScore ++;
-        }
+    if(playerScore > compurterScore){
+        console.log("Player wins!");
+    } else if(compurterScore > playerScore){
+        console.log("Computer wins!");
+    } else{
+        console.log("Draw!");
     }
 
-    if(humanChoice.toLowerCase() === "scissors"){
-        if(compurterChoice === "Paper"){
-            playerScore ++;
+
+    function PlayRound(humanChoice, compurterChoice){
+
+        if(humanChoice.toLowerCase() === "rock"){
+            console.log("success");
+            if(compurterChoice === "Scissors"){
+                playerScore ++;
+            }
+            if(compurterChoice === "Paper"){
+                compurterScore ++;
+            }
         }
-        if(compurterChoice === "Rock"){
-            compurterScore ++;
+        if(humanChoice.toLowerCase() === "paper"){
+            if(compurterChoice === "Rock"){
+                playerScore ++;
+            }
+            if(compurterChoice === "Scissors"){
+                compurterScore ++;
+            }
         }
+    
+        if(humanChoice.toLowerCase() === "scissors"){
+            if(compurterChoice === "Paper"){
+                playerScore ++;
+            }
+            if(compurterChoice === "Rock"){
+                compurterScore ++;
+            }
+        }
+    
+        console.log("Player chose: " + humanChoice);
+    
+        console.log("Computer chose: " + compurterChoice);
+    
+        console.log("Player: " + playerScore.toString() + " Computer: " + compurterScore)
     }
-
-    console.log("Player chose: " + humanChoice);
-
-    console.log("Computer chose: " + compurterChoice);
-
-    console.log("Player: " + playerScore.toString() + " Computer: " + compurterScore)
 }
+
+
+
 
 
 
